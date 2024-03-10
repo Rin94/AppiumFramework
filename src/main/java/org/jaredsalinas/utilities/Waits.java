@@ -14,6 +14,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import io.appium.java_client.android.AndroidDriver;
 
+import java.time.Duration.*;
+
+import static java.time.Duration.ofSeconds;
+
 public class Waits extends BaseTest {
 	
 	public Waits() {
@@ -40,7 +44,7 @@ public class Waits extends BaseTest {
 	public static void explicitWait(WebElement element, WebDriver driver, int timeInSecnonds, String condition,
 			String locator) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSecnonds));
+		WebDriverWait wait = new WebDriverWait(driver, ofSeconds(timeInSecnonds));
 		
 		try {
 			switch (condition.toLowerCase()) {
@@ -76,7 +80,7 @@ public class Waits extends BaseTest {
 	
 	public static void explicitWaitForVisibilityOfElement(WebElement element,WebDriver driver, int timeInSeconds) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
+		WebDriverWait wait = new WebDriverWait(driver, ofSeconds(timeInSeconds));
 		
 		wait.until(ExpectedConditions.visibilityOf(element));
 		
@@ -84,7 +88,7 @@ public class Waits extends BaseTest {
 	
 	public static void explicitWaitForVisibilityOfElement(String xPath,WebDriver driver, int timeInSeconds) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
+		WebDriverWait wait = new WebDriverWait(driver, ofSeconds(timeInSeconds));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPath)));
 		
 		
@@ -92,14 +96,14 @@ public class Waits extends BaseTest {
 	
 	public static void explicitWaitTillElementIsClickable(WebElement element,WebDriver driver, int timeInSeconds) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
+		WebDriverWait wait = new WebDriverWait(driver, ofSeconds(timeInSeconds));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		
 	}
 	
 	public static void explicitWaitForNotVisibilityOfElement(String xpath,WebDriver driver, int timeInSeconds) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
+		WebDriverWait wait = new WebDriverWait(driver, ofSeconds(timeInSeconds));
 		
 		try {
 			wait.until(ExpectedConditions.not(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpath))));
@@ -112,7 +116,7 @@ public class Waits extends BaseTest {
 	
 	public static void generalTimeOut(AndroidDriver driver) {
 		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalVariables.DELAY_LOW));
+		driver.manage().timeouts().implicitlyWait(ofSeconds(GlobalVariables.DELAY_LOW));
 		
 		
 	}

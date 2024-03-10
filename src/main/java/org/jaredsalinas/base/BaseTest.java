@@ -43,7 +43,8 @@ public class BaseTest {
 		options.setDeviceName("JaredSalinasEmulator");
 		options.setChromedriverExecutable(GlobalVariables.CHROME_DRIVER_PATH);
 		//options.setApp(GlobalVariables.ECLIPSE_PATH+GlobalVariables.APP_PATH);
-		options.setApp(GlobalVariables.ECLIPSE_PATH+GlobalVariables.ECOMMERCE_APP_PATH);
+		System.out.println(GlobalVariables.USER_DIRECTORY_PATH);
+		options.setApp(GlobalVariables.USER_DIRECTORY_PATH+GlobalVariables.ECOMMERCE_APP_PATH);
 		
 		try {
 			driver = new AndroidDriver(new URL(GlobalVariables.APPIUM_SERVER_URL),options);

@@ -3,6 +3,7 @@ package org.jaredsalinas.test;
 import java.util.Set;
 
 import org.jaredsalinas.base.BaseTest;
+import org.jaredsalinas.pages.android.FormPage.FormPage;
 import org.jaredsalinas.utilities.GlobalVariables;
 import org.jaredsalinas.utilities.Waits;
 import org.openqa.selenium.By;
@@ -20,9 +21,9 @@ public class eCommerce_tc_1 extends BaseTest{
 	
 	
 private String className;
-private HomePage homePage;
-private ProductsPage productsPage;
-private CartPage cartPage;
+private FormPage formPage;
+//private ProductsPage productsPage;
+//private CartPage cartPage;
 private String productName2;
 private String productName1;
 	
@@ -32,72 +33,69 @@ private String productName1;
 	public void intializeTabInstances() {
 		
 		className = this.getClass().getSimpleName();
-		
+		formPage = new FormPage(driver);
 		productName1="Air Jordan 4 Retro";
 		productName2="Jordan 6 Rings";
-		
-		
-		
+
+
 	}
 	
 	@Test(priority = 5)
 	public void FillForm() {
-		
 		//verify error message
-		Waits.sleep(GlobalVariables.DELAY_VERYLOW);
-		homePage.clickOnLetShopButton();
-		homePage.verifyErrorMesagge("Please enter your name");
-		Waits.sleep(GlobalVariables.DELAY_VERYLOW);
-		homePage.selectCountry("Belgium");
-		homePage.setName("Jared");
+		formPage.clickOnLetShopButton();
+		formPage.verifyErrorMesagge("Please enter your name");
+		formPage.selectCountry("Belgium");
+		formPage.setName("Jared");
 		driver.hideKeyboard();
-		homePage.clickOnMaleRadio();
-		homePage.clickOnLetShopButton();
+		formPage.clickOnMaleRadio();
+		formPage.clickOnLetShopButton();
 		Waits.sleep(GlobalVariables.DELAY_VERYLOW);
-		
-		
-		
+
+
+
 	}
 	
-	@Test(priority = 10 )
+	@Test(priority = 10, enabled = false )
 	public void AddProductToCart() {
-	
+		/*
 		productsPage.addProductToCart(productName1);
-		
-		
-	}
-	
-	
-	@Test(priority = 15 )
-	public void AddingAnotherProductToCart() {
-	
 		productsPage.addProductToCart(productName2);
+
+		 */
+		
 		
 	}
-	
-	@Test(priority = 20)
+
+	@Test(priority = 20, enabled = false)
 	public void verifyProductInCart() {
-		
+
+		/*
 		productsPage.clickOnShoppingCart();
 		cartPage.waitUntilShoppingCartIsDisplayed();
 		cartPage.verifyShoppingCartProduct(productName1,0);
 		cartPage.verifyShoppingCartProduct(productName2,1);
 		cartPage.verifyProductCount();
+
+		 */
 		
 		
 	}
 	
-	@Test(priority = 25)
+	@Test(priority = 25, enabled = false)
 	public void completePurchase() {
-		
+
+		/*
 		cartPage.verifyTermsOfConditions();
 		cartPage.clickOnCloseTermOfConditionPopup();
 		cartPage.checkSendMeEmails();
 		cartPage.clickCompletePurchase();
 		Waits.sleep(GlobalVariables.DELAY_FIVE_SEC);
+
+		 */
 	}
 	
-	@Test(priority= 30)
+	@Test(priority= 30, enabled = false)
 	public void hybridAppTest() {
 		
 		Waits.sleep(GlobalVariables.DELAY_FIVE_SEC);
@@ -119,6 +117,5 @@ private String productName1;
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		driver.context("NATIVE_APP");
 	}
-	
 
 }

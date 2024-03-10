@@ -4,13 +4,14 @@ import org.jaredsalinas.common.CurrentDateAndTime;
 
 public class GlobalVariables {
 
-	public static String ECLIPSE_PATH ="//Users//jaredsalinas//eclipse-workspace//appiumTutorial";
-	public static String LOCAL_MACHINE_PATH= "//Users//jaredsalinas//";
+
+
+	public static String USER_DIRECTORY_PATH = System.getProperty("user.dir");
 	public static String APPIUM_PATH = "//usr//local//lib//node_modules//appium//build//lib//main.js";
-	public static String APP_PATH ="//AppiumQA//src//test//java//resources//ApiDemos-debug.apk";
-	public static String ECOMMERCE_APP_PATH ="//AppiumQA//src//test//java//resources//General-Store.apk";
+	public static String APP_PATH ="/src//test//java//resources//ApiDemos-debug.apk";
+	public static String ECOMMERCE_APP_PATH ="/src/test/java/org/jaredsalinas/resources/apps/General-Store.apk";
 	public static String APPIUM_SERVER_URL ="http://127.0.0.1:4723";
-	public static String CHROME_DRIVER_PATH = "//Users//jaredsalinas//eclipse-workspace//appiumTutorial//AppiumQA//src//test//java//driver//chromedriver";
+	public static String CHROME_DRIVER_PATH = "/src/test/java/org/jaredsalinas/resources/driver/chromedriver";
 
 
 	public static final String CURRENT_DATE_TIME = CurrentDateAndTime.getCurrentDateTime();

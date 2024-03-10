@@ -2,12 +2,10 @@ package org.jaredsalinas.base;
 
 import java.lang.reflect.Method;
 
+import net.bytebuddy.agent.builder.AgentBuilder;
 import org.jaredsalinas.utilities.GlobalVariables;
 import org.jaredsalinas.utilities.Waits;
-import org.openqa.selenium.DeviceRotation;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import com.google.common.collect.ImmutableMap;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -16,7 +14,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-
+import org.testng.Assert;
 
 
 public class BasePage extends BaseTest {
@@ -28,7 +26,33 @@ public void switchToLandScape() {
 		driver.rotate(landScape);
 	}
 	
+	public static void setText(WebElement element, String text){
+		Waits.explicitWaitForVisibilityOfElement(element, driver, GlobalVariables.DELAY_MEDIUM);
+		element.clear();
+		element.sendKeys(text);
+	}
 
+	public static String getText(WebElement element){
+		Waits.explicitWaitForVisibilityOfElement(element, driver, GlobalVariables.DELAY_MEDIUM);
+		return element.getText();
+	}
+
+	public static String getAttributeValue(WebElement element, String value){
+		//Waits.explicitWaitForVisibilityOfElement(element, driver, GlobalVariables.DELAY_MEDIUM);
+		return element.getAttribute(value);
+	}
+
+	public static void verifyEquals(String expectedText, String actualText){
+		Assert.assertEquals(expectedText, actualText);
+	}
+
+
+
+	public static void clickAndWait(WebElement element){
+		Waits.explicitWaitForVisibilityOfElement(element, driver, GlobalVariables.DELAY_MEDIUM);
+		element.click();
+		Waits.implicitWait(GlobalVariables.DELAY_MEDIUM);
+	}
 	
 	public static void longPressAction(WebElement element) {
 		
@@ -42,22 +66,15 @@ public void switchToLandScape() {
 	}
 	
 	public void startActivity(String intent) {
-		
-        
-        
         ((JavascriptExecutor) driver).executeScript("mobile: startActivity", ImmutableMap.of(
 				//right or right, percent how mucho you put your tumb to swipe
 				"intent", intent
 				));
-		
-		
 	}
 	
 	public Double getFormatedAmout(String amout) {
-		
-		
+
 		Double price = Double.parseDouble(amout.replace(GlobalVariables.DOLAR_SIGN, GlobalVariables.EMPTY_SPACE).trim());
-		
 		return price;
 		
 	}
@@ -110,13 +127,13 @@ public void switchToLandScape() {
 		    "elementId", ((RemoteWebElement) element).getId(),
 		    "endX", 836,
 		    "endY", 740
+
 		));
 	}
-	
-	
-	
 
-	
-	
+	public static WebElement findElementByXpath(String xpath){
 
+		return driver.findElement(By.xpath(xpath));
+	}
+	
 }
