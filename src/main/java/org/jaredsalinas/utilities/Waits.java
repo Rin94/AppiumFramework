@@ -1,10 +1,9 @@
 package org.jaredsalinas.utilities;
 
-import java.nio.channels.InterruptedByTimeoutException;
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-import org.jaredsalinas.base.BaseTest;
+import io.appium.java_client.ios.IOSDriver;
+import org.jaredsalinas.base.android.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -13,8 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import io.appium.java_client.android.AndroidDriver;
-
-import java.time.Duration.*;
 
 import static java.time.Duration.ofSeconds;
 
@@ -29,7 +26,7 @@ public class Waits extends BaseTest {
 	public static void sleep (long time) {
 		
 		try {
-			Thread.sleep(time*1000);
+			Thread.sleep(ofSeconds(time).toMillis());
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,6 +35,10 @@ public class Waits extends BaseTest {
 	
 	public static void implicitWait(int timeInSeconds) {
 		
+		driver.manage().timeouts().implicitlyWait(timeInSeconds, TimeUnit.SECONDS);
+	}
+	public static void implicitWait(int timeInSeconds, IOSDriver driver) {
+
 		driver.manage().timeouts().implicitlyWait(timeInSeconds, TimeUnit.SECONDS);
 	}
 	
@@ -85,6 +86,7 @@ public class Waits extends BaseTest {
 		wait.until(ExpectedConditions.visibilityOf(element));
 		
 	}
+
 	
 	public static void explicitWaitForVisibilityOfElement(String xPath,WebDriver driver, int timeInSeconds) {
 		

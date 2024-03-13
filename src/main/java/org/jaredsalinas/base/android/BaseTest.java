@@ -1,4 +1,4 @@
-package org.jaredsalinas.base;
+package org.jaredsalinas.base.android;
 
 
 import java.io.File;
@@ -41,7 +41,7 @@ public class BaseTest {
 		//Appium code -> Appium Server - > Mobile
 		UiAutomator2Options options= new UiAutomator2Options();
 		options.setDeviceName("JaredSalinasEmulator");
-		options.setChromedriverExecutable(GlobalVariables.CHROME_DRIVER_PATH);
+		options.setChromedriverExecutable(GlobalVariables.USER_DIRECTORY_PATH+GlobalVariables.CHROME_DRIVER_PATH);
 		//options.setApp(GlobalVariables.ECLIPSE_PATH+GlobalVariables.APP_PATH);
 		System.out.println(GlobalVariables.USER_DIRECTORY_PATH);
 		options.setApp(GlobalVariables.USER_DIRECTORY_PATH+GlobalVariables.ECOMMERCE_APP_PATH);

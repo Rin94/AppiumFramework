@@ -13,7 +13,6 @@ public class GlobalVariables {
 	public static String APPIUM_SERVER_URL ="http://127.0.0.1:4723";
 	public static String CHROME_DRIVER_PATH = "/src/test/java/org/jaredsalinas/resources/driver/chromedriver";
 
-
 	public static final String CURRENT_DATE_TIME = CurrentDateAndTime.getCurrentDateTime();
 	public static final String CURRENT_DATE = CurrentDateAndTime.getCurrentDate();
 	public static final String CURRENT_TIME = CurrentDateAndTime.getCurrentTime();
@@ -57,7 +56,7 @@ public class GlobalVariables {
 	public static final String EMPTY_SPACE = "";
 	public static final String GOOGLE_PATH = "http://google.com";
 	public static final String ANGULAR_WEB_APP_PATH = "https://rahulshettyacademy.com/angularAppdemo/";
-	public static final String IOS_EMULATOR_PATH = "/Users/jaredsalinas/Library/Developer/Xcode/DerivedData/UIKitCatalog-dacpbpoipeblmycnclmqxtchfaun/Build/Products/Debug-iphonesimulator/UIKitCatalog.app";
+	public static final String IOS_EMULATOR_PATH = "/Users/jaredsalinas/Library/Developer/Xcode/DerivedData/UIKitCatalog-cgjpxshkthzozuhhotxcmnzvpuiv/Build/Products/Debug-iphonesimulator/UIKitCatalog.app";
 	public static final String IOS_TEST_APP_3_PATH = "AppiumQA/src/test/java/resources/TestApp 3.app";
 
 

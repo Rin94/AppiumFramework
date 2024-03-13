@@ -1,8 +1,6 @@
 package org.jaredsalinas.pagesObjects.android;
 
-import io.appium.java_client.android.AndroidDriver;
-import org.jaredsalinas.pages.android.FormPage.FormPage;
-import org.openqa.selenium.By;
+import org.jaredsalinas.pages.android.FormPage;
 import org.openqa.selenium.WebElement;
 
 public class FormPageObjects extends FormPage {
@@ -19,7 +17,7 @@ public class FormPageObjects extends FormPage {
     public static final String AFTER_XPATH_WIDGET_TEXT_VIEW = "']";
 
 
-    public static WebElement getWebElementByCountryName(String option, AndroidDriver driver){
+    public static WebElement getWebElementByCountryName(String option){
 
         return findElementByXpath(BEFORE_XPATH_WIDGET_TEXT_VIEW+option+AFTER_XPATH_WIDGET_TEXT_VIEW);
     }

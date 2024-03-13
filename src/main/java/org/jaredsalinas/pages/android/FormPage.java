@@ -1,15 +1,14 @@
-package org.jaredsalinas.pages.android.FormPage;
+package org.jaredsalinas.pages.android;
 
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.jaredsalinas.base.BasePage;
+import org.jaredsalinas.base.android.BasePage;
 import org.jaredsalinas.pagesObjects.android.FormPageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+
+import static org.jaredsalinas.utilities.AndroidActions.scrollViewUntilTextAppears;
 
 public class FormPage extends BasePage {
 
@@ -50,7 +49,7 @@ public class FormPage extends BasePage {
         //Select selector =new Select(spinnerCountry);
         clickAndWait(spinnerCountry);
         scrollViewUntilTextAppears(countryName);
-        WebElement txtCountryName= FormPageObjects.getWebElementByCountryName(countryName, driver);
+        WebElement txtCountryName= FormPageObjects.getWebElementByCountryName(countryName);
         clickAndWait(txtCountryName);
     }
 
